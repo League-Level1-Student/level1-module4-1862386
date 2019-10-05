@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
@@ -54,28 +55,34 @@ JOptionPane.showMessageDialog(null, "Press the matching key when Simon says othe
 
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
-
+		int points = 0;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-
+		if (keyCode & imageIndex == "Simon says") {
+			points++;
+		}
 		// 17. Increase the value of score
 
 		// 18. Use the speak method to tell the user they were correct
-
+			speak("You are correct!!");
 		// 19. If the keyCode doesn't match the imageIndex and "Simon didn't
 		// say..."
-
+			else {
+				points++;
+			}
 		// 20. Increase the value of score
 
 		// 21. Use the speak method to tell the user they were correct
-
+		speak("You are correct!!");
 		// 22. Increment tries by 1
-
+		tries++;
 		// 25. If tries is greater than 9 (or however many you want)...
-
+		if (tries > 5) {
+			speak(points);
+		}
 		// 26. Tell the user their score
 
 		// 27. Exit the program
-
+			
 		// 23. Dispose of the frame
 
 		// 24. Call the showImage method to show a new image
@@ -98,14 +105,21 @@ JOptionPane.showMessageDialog(null, "Press the matching key when Simon says othe
 		// JFrame.EXIT_ON_CLOSE
 			f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
 		// 11. Add a key listener to the frame
-				f.addKeyListener(l);
+				f.addKeyListener((KeyListener) p);
 		// 12. Create a new instance of Random
-
+				Random says = new Random();
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
-
+				int random = says.nextInt(2);
+				if (random == 1) {
+					speak("Press this key");
+				
+				}
+				else  {
+					speak("");	
+					}
 		// 14. Above, set the value of simonSays to true/false appropriately
-
+				
 	}
 
 	private Component getNextRandomImage() {
