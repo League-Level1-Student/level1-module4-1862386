@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-
+import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -40,6 +40,7 @@ public class Jeopardy implements ActionListener {
 	private JLabel scoreBox = new JLabel("0");
 	private int buttonCount = 0;
 	private AudioClip sound;
+	private AbstractButton fifthButton;
 
 
 
@@ -61,7 +62,7 @@ frame.setTitle("Jeopardy");
 		// 5. Add the quizPanel to the frame
 			frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
-			JButton firstButton	= createButton("$200");
+			 firstButton = createButton("$200");
 		// 7. Add the firstButton to the quizPanel
 				quizPanel.add(firstButton);
 		// 8. Write the code to complete the createButton() method below. Check that your
@@ -71,13 +72,27 @@ frame.setTitle("Jeopardy");
 		// method
 				
 		// 10. Add the secondButton to the quizPanel
-
+				 secondButton = createButton("$400");
+				quizPanel.add(secondButton);
+				firstButton.addActionListener(this);
+				secondButton.addActionListener(this);
 		// 11. Add action listeners to the buttons (2 lines of code)
 
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-		
+				 thirdButton = createButton("$600");
+				quizPanel.add(thirdButton);
+				thirdButton.addActionListener(this);
+				 fourthButton = createButton("$800");
+				quizPanel.add(fourthButton);
+				fourthButton.addActionListener(this);
+				  fifthButton = createButton("$1000");
+				quizPanel.add(fifthButton);
+				fifthButton.addActionListener(this);
+
+
+
 		 /*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
@@ -110,13 +125,27 @@ frame.setTitle("Jeopardy");
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
-
+			if (buttonPressed == firstButton) {
+				askQuestion("What was the first battle that started the american revolution?","The Battles of Lexington and Concord",200);
+			}
 			// Call the askQuestion() method
- 
+ //done
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
 
 		// If the buttonPressed was the secondButton
-
+			if (buttonPressed == secondButton) {
+				askQuestion("What was Mao Zedong's greatest achivement?","He established the People's Republic of China",400);
+			}
+			if (buttonPressed == thirdButton) {
+				askQuestion("Saloth Sar, born 19 May 1925, is better known by what name?","Pol Pot",600);
+			}
+			if (buttonPressed == fourthButton) {
+				askQuestion(" What were the Viet Minh called when they crossed into South Vietnam?","The Viet Cong",800);
+			}
+			if (buttonPressed == fifthButton) {
+				askQuestion("","",1000);
+			}
+			
 			// Call the askQuestion() method with a harder question
 
 		// Clear the text on the button that was pressed (set the button text to nothing)
@@ -126,9 +155,9 @@ frame.setTitle("Jeopardy");
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		
 		// Use the playJeopardyTheme() method to play music while the use thinks of an answer
-		
+		playJeopardyTheme();
 		// Remove this temporary message and replace it with a pop-up that asks the user the question
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
+		JOptionPane.showMessageDialog(null, question);
 		
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
 		
