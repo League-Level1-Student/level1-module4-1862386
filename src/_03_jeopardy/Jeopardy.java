@@ -28,6 +28,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import jdk.nashorn.internal.scripts.JO;
+
 
 /* Check out the Jeopardy Handout to see what the end result should look like: http://bit.ly/1bvnvd4 */
 
@@ -77,7 +79,7 @@ frame.setTitle("Jeopardy");
 				firstButton.addActionListener(this);
 				secondButton.addActionListener(this);
 		// 11. Add action listeners to the buttons (2 lines of code)
-
+			//done
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
@@ -126,7 +128,7 @@ frame.setTitle("Jeopardy");
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
 			if (buttonPressed == firstButton) {
-				askQuestion("What was the first battle that started the american revolution?","The Battles of Lexington and Concord",200);
+				askQuestion("What was the first battle that started the American Revolution?","The Battles of Lexington and Concord",200);
 			}
 			// Call the askQuestion() method
  //done
@@ -140,16 +142,16 @@ frame.setTitle("Jeopardy");
 				askQuestion("Saloth Sar, born 19 May 1925, is better known by what name?","Pol Pot",600);
 			}
 			if (buttonPressed == fourthButton) {
-				askQuestion(" What were the Viet Minh called when they crossed into South Vietnam?","The Viet Cong",800);
+				askQuestion("What were the Viet Minh called when they crossed into South Vietnam?","The Viet Cong",800);
 			}
 			if (buttonPressed == fifthButton) {
-				askQuestion("","",1000);
+				askQuestion("What was used as the border between North Korea and South Korea","The 38th parallel",1000);
 			}
 			
 			// Call the askQuestion() method with a harder question
-
+				//done			
 		// Clear the text on the button that was pressed (set the button text to nothing)
-
+				
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
@@ -157,24 +159,30 @@ frame.setTitle("Jeopardy");
 		// Use the playJeopardyTheme() method to play music while the use thinks of an answer
 		playJeopardyTheme();
 		// Remove this temporary message and replace it with a pop-up that asks the user the question
-		JOptionPane.showMessageDialog(null, question);
+	String answer = JOptionPane.showInputDialog(question);
 		
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
 		
 		// If the answer is correct
-
+			if (answer.equals (correctAnswer)) {
+				prizeMoney++;
+				JOptionPane.showMessageDialog(null, "You were correct!:)");
+			}
 			// Increase the score by the prizeMoney
 
 			// Pop up a message to tell the user they were correct
-
+			
 		// Otherwise
 
 			// Decrement the score by the prizeMoney
-
+			else {
+				prizeMoney--;
+				JOptionPane.showMessageDialog(null, "You were wrong!!! They correct answer is" + correctAnswer );
+			}
 			// Pop up a message to tell the user they were wrong and give them the correct answer
 
 		// Call the updateScore() method
-
+			updateScore();
 	}
 
 	public void playJeopardyTheme() {
