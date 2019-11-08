@@ -42,6 +42,8 @@ private void makeButtons() {
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
-	JOptionPane.showMessageDialog(null, "hi");
+	JOptionPane.showMessageDialog(null, "Hi");
+
+
 }
 }
