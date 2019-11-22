@@ -20,12 +20,15 @@ public static void main(String[] args) {
 private void makeButtons() {
 	// TODO Auto-generated method stub
 	JPanel p = new JPanel();
+	JPanel a = new JPanel();
 	JButton b = new JButton("joke");
 	JButton j = new JButton("punchline");
 	JFrame f = new JFrame();
+	f.add(a);
 	f.add(p);
 	p.add(b);
 	p.add(j);
+	
 	f.setVisible(true);
 	
 	

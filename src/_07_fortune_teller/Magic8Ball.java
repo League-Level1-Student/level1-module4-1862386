@@ -15,7 +15,7 @@ public class Magic8Ball {
 		 new Random().nextInt(4);
 
 		// 3. Print out this variable
-
+		 
 		// 4. Get the user to enter a question for the 8 ball
 
 		// 5. If the random number is 0

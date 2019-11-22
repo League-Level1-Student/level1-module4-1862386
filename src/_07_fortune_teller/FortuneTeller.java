@@ -58,7 +58,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    		 // 10. Play the sound
    		  sound.play();
    		 // 11. Use the pause() method below to wait until your music has finished
-   		  	
+   		  	pause(243);
    		 // 12. Insert your completed Magic 8 ball code here
    		  
    	 }
