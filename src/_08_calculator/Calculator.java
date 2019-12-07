@@ -34,6 +34,7 @@ public class Calculator {
 		u.addActionListener((ActionListener) this);
 		t.addActionListener((ActionListener) this);
 		o.addActionListener((ActionListener) this);
+		f.pack();
 
 	}
 }
