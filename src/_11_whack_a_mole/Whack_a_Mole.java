@@ -17,7 +17,7 @@ public class Whack_a_Mole {
 		JPanel p = new JPanel();
 		JFrame f = new JFrame("Whack a Button for Fame and Glory");
 		for (int i = 0; i < 24; i++) {
-			JButton b = new JButton();
+			JButton b = new JButton("mole!");
 			p.add(b);
 		}
 		f.add(p);
