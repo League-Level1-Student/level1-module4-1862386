@@ -1,5 +1,7 @@
 package _09_latest_tweet;
 
+import java.awt.event.ActionListener;
+
 import javax.management.Query;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,6 +10,9 @@ import javax.swing.JTextField;
 
 public class Latest_Tweet {
 	public static void main(String[] args) {
+		
+	}
+	void setup() {
 		JPanel p = new JPanel();
 		JFrame f = new JFrame("The Amazing Tweet Retriever");
 		JTextField i = new JTextField(5);
@@ -17,10 +22,32 @@ public class Latest_Tweet {
 		p.add(b);
 		f.setVisible(true);
 		f.pack();
+	p.addActionListener((ActionListener) this);
+	
 	}
-	if (b == pressed) {
-		System.out.println("Tweet Tweet");
+ void checkButton () {
+	JButton buttonPressed = (JButton) e.getSource();
+	buttonPressed.addActionListener((ActionListener) this);
+	if (buttonPressed == true) {
+		System.out.println();	
 	}
+		
+		//Switch Statement
+		//int x = ...
+		//switch(x) {
+		//case 0 :
+		// break;
+		//case 1:
+		//break;
+		//default:
+		//break
+		//}
+		//What is the value that i am checking. "less flexible than an else if".
+	
+	
+	
+	
+	
 	private String getLatestTweet(String searchingFor) {
 
 	    Twitter twitter = new TwitterFactory().getInstance();
@@ -41,5 +68,6 @@ public class Latest_Tweet {
 	        return "";
 	    }
 	}
-
 }
+}
+
