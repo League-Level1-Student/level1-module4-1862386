@@ -1,35 +1,38 @@
 package _09_latest_tweet;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.management.Query;
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
 
-public class Latest_Tweet {
+
+public class Latest_Tweet implements ActionListener {
+	JPanel p = new JPanel();
+	JButton b = new JButton("Search the Twitterverse!");
+
 	public static void main(String[] args) {
-		
 	}
+	
 	void setup() {
-		JPanel p = new JPanel();
+		
 		JFrame f = new JFrame("The Amazing Tweet Retriever");
 		JTextField i = new JTextField(5);
-		JButton b = new JButton("Search the Twitterverse!");
 		f.add(p);
 		p.add(i);
 		p.add(b);
 		f.setVisible(true);
 		f.pack();
-	p.addActionListener((ActionListener) this);
+	(b).addActionListener(this);
 	
 	}
- void checkButton () {
-	JButton buttonPressed = (JButton) e.getSource();
-	buttonPressed.addActionListener((ActionListener) this);
-	if (buttonPressed == true) {
-		System.out.println();	
+
+	void checkButton () {
 	}
 		
 		//Switch Statement
@@ -48,7 +51,7 @@ public class Latest_Tweet {
 	
 	
 	
-	private String getLatestTweet(String searchingFor) {
+	String getLatestTweet(String searchingFor) {
 
 	    Twitter twitter = new TwitterFactory().getInstance();
 
@@ -68,6 +71,14 @@ public class Latest_Tweet {
 	        return "";
 	    }
 	}
-}
-}
 
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton buttonPressed = (JButton) e.getSource();
+		if (buttonPressed == b) {
+			System.out.println("Tweet Tweet");	
+		}
+	}
+}

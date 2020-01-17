@@ -37,7 +37,7 @@ public class Whack_a_Mole {
 		f.setSize(672, 150);
 
 	}
-//	if (mousePressed == true) {
+	//if (mousePressed == b) {
 			
 //	}
 	void speak(String words) {
