@@ -7,6 +7,7 @@ import javax.management.Query;
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
@@ -20,7 +21,6 @@ public class Latest_Tweet implements ActionListener {
 	}
 	
 	void setup() {
-		
 		JFrame f = new JFrame("The Amazing Tweet Retriever");
 		JTextField i = new JTextField(5);
 		f.add(p);
@@ -29,11 +29,8 @@ public class Latest_Tweet implements ActionListener {
 		f.setVisible(true);
 		f.pack();
 	(b).addActionListener(this);
-	
 	}
 
-	void checkButton () {
-	}
 		
 		//Switch Statement
 		//int x = ...
