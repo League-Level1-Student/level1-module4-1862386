@@ -25,7 +25,7 @@ public static void main(String[] args) {
     p.add(e);
     f.setVisible(true);
     f.pack();
-   
+  
 }
 private JLabel createLabelImage(String fileName) throws MalformedURLException{
     URL imageURL = getClass().getResource(fileName);
