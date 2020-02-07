@@ -46,7 +46,7 @@ public class Whack_a_Mole implements ActionListener {
 		}
 	}
 	private void endGame(Date timeAtStart, int molesWhacked) { 
-	    Date timeAtEnd = new Date();
+	    Date timeAtEnd = new Date(molesWhacked);
 	    JOptionPane.showMessageDialog(null, "Your whack rate is "
 	            + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked)
 	                  + " moles per second.");
