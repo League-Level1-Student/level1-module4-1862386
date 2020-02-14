@@ -1,5 +1,7 @@
 package _12_slot_machine;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -10,13 +12,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Slot_Machine {
+public class Slot_Machine implements ActionListener {
 	JFrame f = new JFrame();
 	JPanel p = new JPanel();
 	JLabel l = new JLabel();
 	JLabel a = new JLabel();
 	JLabel b = new JLabel();
-	JButton e = new JButton("Spin!");
+	JButton spin = new JButton("Spin!");
 
 	public static void main(String[] args) {
 		Slot_Machine rob = new Slot_Machine();
@@ -32,6 +34,7 @@ public class Slot_Machine {
 	Icon icon = new ImageIcon(imageURL);
 	JLabel imageLabel = new JLabel(icon);
 	return imageLabel;
+	
 }
 
 	void createGUI() {
@@ -40,18 +43,34 @@ public class Slot_Machine {
 			a = createLabelImage("Cherry.jpg");
 			b = createLabelImage("Lime.jpg");
 			l = createLabelImage("Orange.jpg");
-			System.out.println("Hi");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		spin.addActionListener(this);
 		f.add(p);
 		p.add(l);
 		p.add(a);
 		p.add(b);
-		p.add(e);
+		p.add(spin);
 		f.setVisible(true);
 		f.pack();
-
 	}
+		public void actionPerformed(ActionEvent e) {
+			
+			// TODO Auto-generated method stub
+			JButton buttonPressed = (JButton) e.getSource();
+			if (buttonPressed == spin) {
+				
+				p.remove(l);
+				p.remove(a);
+				p.remove(b);
+				
+				p.add(a);
+				p.add(b);
+				p.add(l);
+				f.pack();
+			} 
+}
 }
