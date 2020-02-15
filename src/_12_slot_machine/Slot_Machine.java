@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Random;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -19,6 +20,8 @@ public class Slot_Machine implements ActionListener {
 	JLabel a = new JLabel();
 	JLabel b = new JLabel();
 	JButton spin = new JButton("Spin!");
+	Random numberGenerator = new Random();
+	int x = numberGenerator.nextInt(3);
 
 	public static void main(String[] args) {
 		Slot_Machine rob = new Slot_Machine();
@@ -49,13 +52,16 @@ public class Slot_Machine implements ActionListener {
 		}
 		
 		spin.addActionListener(this);
-		f.add(p);
+				f.add(p);
 		p.add(l);
 		p.add(a);
 		p.add(b);
 		p.add(spin);
 		f.setVisible(true);
 		f.pack();
+		
+		
+		
 	}
 		public void actionPerformed(ActionEvent e) {
 			
@@ -63,14 +69,34 @@ public class Slot_Machine implements ActionListener {
 			JButton buttonPressed = (JButton) e.getSource();
 			if (buttonPressed == spin) {
 				
-				p.remove(l);
-				p.remove(a);
-				p.remove(b);
 				
-				p.add(a);
-				p.add(b);
-				p.add(l);
+				p.removeAll();
+				for (int i = 0; i<3; i++) {
+					x = numberGenerator.nextInt(3);
+					System.out.println(x);
+					
+				if (x == 0) {
+					JLabel d = a;
+					p.add(d);
+				}
+				else if (x == 1) {
+					JLabel j = b;
+					p.add(j);
+
+				}
+				else {
+					JLabel o = l;
+					p.add(o);
+
+				}
+				
+				}
+				p.add(spin);
 				f.pack();
+				
 			} 
+			
 }
+		
+	
 }
