@@ -28,20 +28,20 @@ public class Slot_Machine implements ActionListener {
 		rob.createGUI();
 	}
 
-	private JLabel createLabelImage(String fileName) throws MalformedURLException{
-        URL imageURL = getClass().getResource(fileName);
-	if (imageURL == null){
-		System.err.println("Could not find image " + fileName);
-		return new JLabel();
+	private JLabel createLabelImage(String fileName) throws MalformedURLException {
+		URL imageURL = getClass().getResource(fileName);
+		if (imageURL == null) {
+			System.err.println("Could not find image " + fileName);
+			return new JLabel();
+		}
+		Icon icon = new ImageIcon(imageURL);
+		JLabel imageLabel = new JLabel(icon);
+		return imageLabel;
+
 	}
-	Icon icon = new ImageIcon(imageURL);
-	JLabel imageLabel = new JLabel(icon);
-	return imageLabel;
-	
-}
 
 	void createGUI() {
-		
+
 		try {
 			a = createLabelImage("Cherry.jpg");
 			b = createLabelImage("Lime.jpg");
@@ -50,53 +50,66 @@ public class Slot_Machine implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		spin.addActionListener(this);
-				f.add(p);
+		f.add(p);
 		p.add(l);
 		p.add(a);
 		p.add(b);
 		p.add(spin);
 		f.setVisible(true);
 		f.pack();
-		
-		
-		
+
 	}
-		public void actionPerformed(ActionEvent e) {
+
+	public void actionPerformed(ActionEvent e) {
+
+		// TODO Auto-generated method stub
+		JButton buttonPressed = (JButton) e.getSource();
+		if (buttonPressed == spin) {
 			
-			// TODO Auto-generated method stub
-			JButton buttonPressed = (JButton) e.getSource();
-			if (buttonPressed == spin) {
-				
-				
-				p.removeAll();
-				for (int i = 0; i<3; i++) {
-					x = numberGenerator.nextInt(3);
-					System.out.println(x);
-					
+			p.removeAll();
+			p.add(spin);
+			for (int i = 0; i < 3; i++) {
+				x = numberGenerator.nextInt(3);
+				System.out.println(x);
+
 				if (x == 0) {
-					JLabel d = a;
+					JLabel d = new JLabel();
+					try {
+						d = createLabelImage("Cherry.jpg");
+					} catch (MalformedURLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					p.add(d);
-				}
-				else if (x == 1) {
-					JLabel j = b;
+				} else if (x == 1) {
+					JLabel j = new JLabel();
+					try {
+						j = createLabelImage("Lime.jpg");
+					} catch (MalformedURLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					p.add(j);
 
-				}
-				else {
-					JLabel o = l;
+				} else {
+					JLabel o = new JLabel();
+					try {
+						o = createLabelImage("Orange.jpg");
+					} catch (MalformedURLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					p.add(o);
+				}
 
-				}
-				
-				}
-				p.add(spin);
-				f.pack();
-				
-			} 
+			}
 			
-}
-		
-	
+			f.pack();
+
+		}
+
+	}
+
 }
